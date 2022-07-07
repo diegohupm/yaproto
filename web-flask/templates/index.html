@@ -10,7 +10,7 @@
     <title>Auto Yaproto</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../statics/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="../statics/js/js-panzoom.js">
 
     <!-- Custom CSS -->
@@ -20,85 +20,70 @@
 </head>
 
 <body>
+
+
+<!-- dheras - navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Edit
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Nodes</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal3">Routers</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal2">Edges</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal10">Info Network</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Project
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal4">Deploy</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal5">Destroy</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal8">Save</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal9">Load</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Protocolo
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal6">RIP</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal7">OSPF</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Yaproto
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<!-- dheras - navbar - fin-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2">
-            <div id="wrapper" class="container">
-
-                <!-- Sidebar -->
-                <div id="sidebar-wrapper">
-                    <ul class="sidebar-nav">
-                        <li class="sidebar-brand">
-                            <a href="#">
-                                Auto Yaproyo
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal">
-                                Nodes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal3">
-                                Routers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal2">
-                                Edges
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal4">
-                                Deploy
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal5">
-                                Destroy
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#" id="checkNames" data-toggle="modal" data-target="#myModal6">
-                                Rip
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" id="checkNamesOspf" data-toggle="modal" data-target="#myModal7">
-                                Ospf
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal8">
-                                Save
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" id="checkJson" data-toggle="modal" data-target="#myModal9">
-                                Load
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" id="infoNet" data-toggle="modal" data-target="#myModal10">
-                                Info network
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /#sidebar-wrapper -->
-
-            </div>
-        </div>
-        <div class="col-sm-10">
-
+        <div class="col-sm-12">
             <div id="cy-container">
                 <div id="cy"></div>
             </div>
@@ -430,16 +415,22 @@
 
 </div>
 <!-- /#page-content-wrapper -->
-<script src="../statics/js/jquery.js"></script>
-<script src="../statics/js/bootstrap.min.js"></script>
-<script src="../statics/cytoscape/dist/cytoscape.min.js"></script>
-<script src='https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js'></script>
-<script src='https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.1.2/cytoscape-dagre.js'></script>
-<!-- cytoscape popper -->
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
+<!-- dheras - VIEJO <script src="../statics/js/jquery.js"></script>
+<script src="../statics/js/bootstrap.min.js"></script> -->
+    <!-- /#page-content-wrapper -->
+    <script src="../statics/js/jquery.js"></script>
+    <script src="../statics/js/bootstrap.min.js"></script> 
+    <script src="../statics/cytoscape/dist/cytoscape.min.js"></script>
+    <script src='https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js'></script>
+    <script src='https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.1.2/cytoscape-dagre.js'></script>
+    <!-- cytoscape popper -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.5/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cytoscape-popper@1.0.2/cytoscape-popper.min.js"></script>
-<script src="../statics/js/code.js"></script>
-<script src="../statics/js/stream.js"></script>
+    <script src="../statics/js/code.js"></script>
+    <script src="../statics/js/stream.js"></script>
 </body>
 </html>
 </html>
