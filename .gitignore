@@ -1,0 +1,9 @@
+.vagrant
+*.retry
+*.pyc
+.idea/*
+venv/*
+web-flask/.idea/*
+web-flask/venv/*
+vagrant_getting_started/data/tmp
+web-flask/lib/dirsave/*.json

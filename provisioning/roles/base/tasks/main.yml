@@ -1,0 +1,79 @@
+---
+# tasks file for base
+- selinux:
+    state: disabled
+
+- name: disable and stop chronyd
+  service:
+    name: chronyd
+    enabled: no
+    state: stopped
+
+- name: Reboot a machine updates to apply
+  reboot:
+    reboot_timeout: 600
+
+- name: install the java 1.6 openjdk-devel
+  yum:
+    name: java-1.6.0-openjdk-devel
+    state: present
+
+- name: install epel-release
+  yum:
+    name: epel-release
+    state: present
+
+- name: install shellinabox
+  yum:
+    name: shellinabox
+    state: present
+
+- name: Template con el puerto correspondiente.
+  template:
+    src: shellinaboxd.j2
+    dest: /etc/sysconfig/shellinaboxd
+    group: root
+    mode: 777
+
+- name: start shellinaboxd
+  service:
+    name: shellinaboxd
+    enabled: yes
+    state: started
+
+- name: install mosquitto
+  yum:
+    name: mosquitto
+    state: present
+
+- name: Change Port mosquitto
+  lineinfile:
+    path: /etc/mosquitto/mosquitto.conf
+    line: port {{ puerto_mosquitto }}
+    create: yes
+
+- name: start mosquitto
+  service:
+    name: mosquitto
+    enabled: yes
+    state: started
+
+- name: Creo usuario de consulta "user" contraseña "temporal"
+  user:
+    name: user
+    shell: /bin/bash
+    groups: root,users
+    password: "$1$RFrvhNnG$/KGKZzcC8yD53YI0LAV8y/" # temporal
+    append: yes
+
+- name: Add user "user" to sudo
+  lineinfile:
+    path: /etc/sudoers.d/user
+    line: 'user ALL=(ALL) NOPASSWD: ALL'
+    state: present
+    mode: 0440
+    create: yes
+    validate: 'visudo -cf %s'
+
+- name: Ensure hostname set
+  hostname: name={{ inventory_hostname }}

@@ -1,0 +1,25 @@
+---
+# tasks file for network
+- name: install nettools
+  yum:
+    name: net-tools
+    state: present
+
+- name: install traceroute
+  yum:
+    name: traceroute
+    state: present
+
+- debug:
+    msg: ip {{ ip }} gateway {{ gateway }}
+
+- name: "Delete default gateway"
+  command: route del default gw 10.0.2.2
+
+- name: "Add route to other network"
+  command: route add -net {{ item }} netmask 255.255.255.0 gw {{ gateway_2 }}
+  when: gateway_2 is defined
+  with_items: "{{ net_destino.split(',') }}"
+
+- name: "Add router gateway"
+  command: route add default gw {{ gateway }}

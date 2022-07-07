@@ -1,0 +1,12 @@
+---
+- hosts: all
+  roles:
+      - role: base
+
+- hosts: routers
+  roles:
+      - role: router
+
+- hosts: all
+  roles:
+      - role: network
